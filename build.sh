@@ -1,4 +1,6 @@
 #!/bin/bash
 
-docker build --tag arm-xcompiler:0.1.0 .
+VERSION=$(cat README.md | grep "Version" | awk '{print $2}')
+
+docker build --tag arm-xcompiler:$VERSION .
 
