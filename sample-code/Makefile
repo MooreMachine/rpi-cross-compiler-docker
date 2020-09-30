@@ -16,6 +16,15 @@ executable:
 	-o build/main \
 	-O0
 
+noid:
+	@mkdir -p build
+	arm-linux-gnueabihf-gcc-8 \
+	-march=armv6 -marm -mfpu=vfp \
+	-Wl,--build-id=none \
+	build/main.s \
+	-o build/noidmain \
+	-O0
+
 object:
 	@mkdir -p build
 	arm-linux-gnueabihf-gcc-8 \
