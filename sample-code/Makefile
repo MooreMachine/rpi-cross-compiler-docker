@@ -16,6 +16,14 @@ executable:
 	-o build/main \
 	-O0
 
+object:
+	@mkdir -p build
+	arm-linux-gnueabihf-gcc-8 \
+	-march=armv6 -marm -mfpu=vfp \
+	-c build/main.s \
+	-o build/main.o \
+	-O0
+
 clean:
 	rm -f build/*
 
