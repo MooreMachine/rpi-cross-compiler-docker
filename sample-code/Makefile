@@ -8,6 +8,14 @@ assembly:
 	-o build/main.s \
 	-O0
 
+object:
+	@mkdir -p build
+	arm-linux-gnueabihf-gcc-8 \
+	-march=armv6 -marm -mfpu=vfp \
+	-c build/main.s \
+	-o build/main.o \
+	-O0
+
 executable:
 	@mkdir -p build
 	arm-linux-gnueabihf-gcc-8 \
@@ -23,14 +31,6 @@ noid:
 	-Wl,--build-id=none \
 	build/main.s \
 	-o build/noidmain \
-	-O0
-
-object:
-	@mkdir -p build
-	arm-linux-gnueabihf-gcc-8 \
-	-march=armv6 -marm -mfpu=vfp \
-	-c build/main.s \
-	-o build/main.o \
 	-O0
 
 clean:
